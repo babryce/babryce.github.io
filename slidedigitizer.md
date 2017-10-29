@@ -42,6 +42,7 @@ The rapid slide copier really does  quite well. When you consider that the 8400F
 
 I used Adobe Lightroom to convert the RAW file from my camera with only the &quot;autotone&quot; adjustment applied. I used autotone in the Canon TWAIN driver as well. The white balance of the 400D was set to custom using a blank frame of the projector light as the custom source. The white balance for the Canon 8400F was set to automatic.
 
-I feel like they both do a good enough job, each way has advantages, but for rapid digitization of a whole collection this simple auto copier is great, simply because of the fact that was used to take an <em>hour</em> now takes a <em>minute</em>. The most time consuming part is loading the carousel.   
+I feel like they both do a good enough job, each way has advantages, but for rapid digitization of a whole collection this simple auto copier is great, simply because of the fact that was used to take an hour now takes a minute. The most time consuming part is loading the carousel.   
 
 Update: If you want more details I have written them up [here](./slidedigitizerdetails.html)
+
