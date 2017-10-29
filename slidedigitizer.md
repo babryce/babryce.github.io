@@ -1,6 +1,6 @@
-###Simple Rapid Slide Digitizer</h3><br>
+###Simple Rapid Slide Digitizer
     
-![Top View](./slidedigitizer/topview.jpg")
+![Top View](./slidedigitizer/topview.jpg)
 
 A lot of people have old slide collections. Pretty much anyone who was serious about photography more than 10 years ago probably has at least a few boxes of slides. I have about two shoe boxes full and my father has a lot more.   
 
@@ -12,7 +12,7 @@ Luckily, one day I thought why don't I just take pictures of my slides? Then I t
 
 Now I admit the system I designed requires two really expensive parts: a nice macro lens and a decent digital SLR to use with said lens, but I think a lot of photographers who would have had slide collections also have these! So the cost to them is low.  (Total cost to me was under 10 dollars, and I can reuse the parts as this is just a breadboard design).
 
-To automate the setup, I used an AVRTiny2313 microcontroller attached to two small relays. The relays are tied to the cable release (2.5 mm stereo jack) for the Canon 400D DSLR and the remote advance pins of the slide projector. (Kodak Ektagraphic II). The whole thing can run at about 1 Hz.  ![Auto Slide Copier Schematic]("./slidedigitizer/autoslide.png")    
+To automate the setup, I used an AVRTiny2313 microcontroller attached to two small relays. The relays are tied to the cable release (2.5 mm stereo jack) for the Canon 400D DSLR and the remote advance pins of the slide projector. (Kodak Ektagraphic II). The whole thing can run at about 1 Hz.  ![Auto Slide Copier Schematic](./slidedigitizer/autoslide.png)    
 
 As you can see above the simplified schematic is  a very simple design.
 
