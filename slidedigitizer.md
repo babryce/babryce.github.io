@@ -20,6 +20,8 @@ In my system the timing and slide number are programmed in via a 8 pin dip switc
   
 Once that is done, you just set the number of slides and push go. You can see how it works in the video below. 
 
+[flickr video=https://www.flickr.com/photos/bbryce/4149018287/]
+
   <object type="application/x-shockwave-flash" width="400" height="300" data="http://www.flickr.com/apps/video/stewart.swf?v=71377" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"> <param name="flashvars" value="intl_lang=en-us&photo_secret=898d35f5e5&photo_id=4149018287"></param> <param name="movie" value="http://www.flickr.com/apps/video/stewart.swf?v=71377"></param> <param name="bgcolor" value="#000000"></param> <param name="allowFullScreen" value="true"></param><embed type="application/x-shockwave-flash" src="http://www.flickr.com/apps/video/stewart.swf?v=71377" bgcolor="#000000" allowfullscreen="true" flashvars="intl_lang=en-us&photo_secret=898d35f5e5&photo_id=4149018287" height="300" width="400"></embed></object>  
   
 Onto the results! Here is a comparison of a random slide from my 2003 cross country road trip using the slide copier and my Canon 8400F  scanner.
@@ -44,5 +46,5 @@ I used Adobe Lightroom to convert the RAW file from my camera with only the &quo
 
 I feel like they both do a good enough job, each way has advantages, but for rapid digitization of a whole collection this simple auto copier is great, simply because of the fact that was used to take an hour now takes a minute. The most time consuming part is loading the carousel.   
 
-Update: If you want more details I have written them up [here](./slidedigitizerdetails.html)
+Update: If you want more details I have written them up [here](./slidedigitizerdetails.html).
 
