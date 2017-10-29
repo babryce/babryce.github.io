@@ -20,7 +20,7 @@ In my system the timing and slide number are programmed in via a 8 pin dip switc
 
 (Update: I am finding using aperture priority helps compensate for slide density better, but manual focus is essential so that the system remains in sync, there is a risk if you have very black slides that using Av will throw off the sync depending on what timing you set). Use of a high f-number is recommended to help with DOF (I chose f11 and shot with RAW to give better exposure latitude).    
   
-Once that is done, you just set the number of slides and push go. You can see how it works in the this ![video](https://www.flickr.com/photos/bbryce/4149018287). 
+Once that is done, you just set the number of slides and push go. You can see how it works in the this [video](https://www.flickr.com/photos/bbryce/4149018287). 
   
 Onto the results! Here is a comparison of a random slide from my 2003 cross country road trip using the slide copier and my Canon 8400F  scanner.
 
