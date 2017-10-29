@@ -1,4 +1,4 @@
-###Simple Rapid Slide Digitizer
+### Simple Rapid Slide Digitizer
     
 ![Top View](./slidedigitizer/topview.jpg)
 
