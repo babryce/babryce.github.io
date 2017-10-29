@@ -13,7 +13,7 @@ If you can make much of that I congratulate you :-) it is a mess.
 
 So here is a more complete schematic. The values for the resistors are arbitrary. I did not re-check what I used but the values listed would work, click for a large version:
 
-[](./slidedigitizer/autoslidedetails.gif)![Schematic](./slidedigitizer/autoslidedetails.png)
+[![Schematic](./slidedigitizer/autoslidedetails.png)](./slidedigitizer/autoslidedetails.gif)
 
 Relay 1 is connected to the DIN connector on the pack of the slide projector. I just used two bent nails of the correct size as the pins to plug in. One pin goes into COMon and the other into the FWD. I didn't use back but it is the pin I labeled I believe.
 
