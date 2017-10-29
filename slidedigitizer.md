@@ -16,13 +16,17 @@ To automate the setup, I used an AVRTiny2313 microcontroller attached to two sma
 
 As you can see above the simplified schematic is  a very simple design.
 
-In my system the timing and slide number are programmed in via a 8 pin dip switch. Using the system requires tuning the timing for the slide projector chosen, then manually focusing on the slide and manually setting the exposure so that results will be uniform across all the slides. (Update: I am finding using aperture priority helps compensate for slide density better, but manual focus is essential so that the system remains in sync, there is a risk if you have very black slides that using Av will throw off the sync depending on what timing you set). Use of a high f-number is recommended to help with DOF (I chose f11 and shot with RAW to give better exposure latitude).    
+In my system the timing and slide number are programmed in via a 8 pin dip switch. Using the system requires tuning the timing for the slide projector chosen, then manually focusing on the slide and manually setting the exposure so that results will be uniform across all the slides. 
+
+(Update: I am finding using aperture priority helps compensate for slide density better, but manual focus is essential so that the system remains in sync, there is a risk if you have very black slides that using Av will throw off the sync depending on what timing you set). Use of a high f-number is recommended to help with DOF (I chose f11 and shot with RAW to give better exposure latitude).    
   
 Once that is done, you just set the number of slides and push go. You can see how it works in the this ![video](https://www.flickr.com/photos/bbryce/4149018287). 
   
 Onto the results! Here is a comparison of a random slide from my 2003 cross country road trip using the slide copier and my Canon 8400F  scanner.
 
-Both the full composition and crops are shown bellow.<p>Auto Slide Copier Result (click for full size):
+Both the full composition and crops are shown bellow.
+
+Auto Slide Copier Result (click for full size):
 
 <a href="http://farm3.static.flickr.com/2743/4149876800_d39037ce38_o.jpg"><img src="slidedigitizer/copier_sm.jpg" width="618" height="412" border="0"/></a>  
 
