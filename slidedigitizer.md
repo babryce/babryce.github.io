@@ -4,7 +4,7 @@
 
 A lot of people have old slide collections. Pretty much anyone who was serious about photography more than 10 years ago probably has at least a few boxes of slides. I have about two shoe boxes full and my father has a lot more.   
 
-For a long time I have thought how can I get my slides all digitized so that I can not only have easy access to them but also in case they mold or fade. I've owned slide scanners both flatbed and dedicated and while they work well enough they aren't exactly what I'd call speedy. Using such a system to copy <em>thousands</em> of slides is daunting to say the least.  
+For a long time I have thought how can I get my slides all digitized so that I can not only have easy access to them but also in case they mold or fade. I've owned slide scanners both flatbed and dedicated and while they work well enough they aren't exactly what I'd call speedy. Using such a system to copy *thousands* of slides is daunting to say the least.  
 
 I had looked into this question and found some options, such as Nikon's SF-210 slide feeder, but the cost was staggering: 1000s of dollars. You can make a decent scan for 60-80 dollars using a flatbed but it is slow. To do it quickly or at least without a lot of work  costs more than I could afford...
 
