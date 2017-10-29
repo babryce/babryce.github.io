@@ -1,5 +1,6 @@
     
     ### Simple Rapid Slide Digitizer - Extra Details
+    
     <p>I have had a few people ask me about the details of this project. I'm happy to provide them however, given that you will need to know how to do inline programming on the AVR AT2313 you probably already know some way to design the required circuits. 
     <p>On the slide projector, well it was chosen at random and modified in an ad hock manner. You might get the same projector as they <em>are</em> common but there is no explicit reason to use the one I did (Ektagraphic II).    
     <p><em>Normal disclaimer applies: these designs are provided without any warranty. Build this project at your own risk, short a high voltage to your cable release and you could blow up your camera for instance. Projectors have line voltages in them, etc.</em>    
