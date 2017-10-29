@@ -42,5 +42,5 @@ I used Adobe Lightroom to convert the RAW file from my camera with only the &quo
 
 I feel like they both do a good enough job, each way has advantages, but for rapid digitization of a whole collection this simple auto copier is great, simply because of the fact that was used to take an hour now takes a minute. The most time consuming part is loading the carousel.   
 
-Update: If you want more details I have written them up ![here](./slidedigitizerdetails.html).
+Update: If you want more details I have written them up <a href="/slidedigitizerdetails.html">here</a>.
 
