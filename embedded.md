@@ -2,5 +2,5 @@ I hope to start adding some fun new personal embedded systems projects here. Mos
 
 I've moved my [KiCAD tutorial here](http://babryce.com/KiCADtutorial.pdf) for long term preservation, as I will eventually shut down teho Labs completely. 
 
-An ancient (2007?) AVR project from my old website that still gets some traffic is the [rapid slide digitizer](http://babryce.com/slidedigitizer.html). It is a good first bare metal project or project with relays/timing for someone new to embedded systems. Though I guess these days most folks would use an Arduino for such purposes rather than bare metal AVR.
+An ancient (2006?) AVR project from my old website that still gets some traffic is the [rapid slide digitizer](http://babryce.com/slidedigitizer.html). It is a good first bare metal project or project with relays/timing for someone new to embedded systems. Though I guess these days most folks would use an Arduino for such purposes rather than bare metal AVR.
 
