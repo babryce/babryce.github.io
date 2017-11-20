@@ -22,7 +22,7 @@ From our 200 LDO choices remaining we select a Texas Instruments [TL1963 LDO](ht
 We will implement the simplified schematic on the first page of the [datasheet](http://www.ti.com/lit/ds/symlink/tl1963a.pdf) for this tutorial, supplying Vin from a USB plug and making Vout available on a 0.1 inch header that can plugged into a breadboard. 
 
 In section 10.2 of the datasheet we are given the formula for the output voltage:
-V_out=1.21V (1+R_2/R_1 )+I_adj R2
+$$V_out=1.21V (1+R_2/R_1 )+I_adj R2$$
 
 Meanwhile Figure 30 (reproduced below) gives a particular application of the formula for a 2.5 V output. 
  
@@ -258,7 +258,7 @@ The default name will match the project and the save location will be the projec
 
 The schematic tool has done its job: producing a netlist for the circuit we wanted. Our next step is to tell the CAD tool what the parts look like by assigning the symbols footprints.
 
-##Assigning and making footprints:
+## Assigning and making footprints:
 Most of the footprints we will need are built into KiCAD because we wisely chose parts with standard footprints. We could have chosen a potentiometer with a standard footprint as well but we intentionally did not to allow this tutorial to including making a footprint. This is an essential skill just like making a symbol.
 In the main KiCAD window click on Footprint Editor
 You may get some warnings but you can just click through them. This should bring up the footprint editor:
