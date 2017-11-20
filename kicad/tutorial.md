@@ -26,7 +26,7 @@ $$V_{out}=1.21V (1+R_2/R_1 )+I_{adj} R_2$$
 
 Meanwhile Figure 30 (reproduced below) gives a particular application of the formula for a 2.5 V output. 
 
-![LDO Circuit]("http://babryce/kicad/ldocircuit.PNG")
+![LDO Circuit]("ldocircuit.PNG")
  
 We wish to create an output ranging from as close to 0 as possible to as close to our input voltage as reasonable. Our USB power source is 5 V, and the dropout voltage of this regulator is nominally 340 mV. Regulation between 1.21 V and 4.6 V is therefore possible. To enable user adjustable operation we must replace R1 or R2 with an adjustable resistor: a potentiometer, also called a pot. 
 We will replace R2 with the pot. 10 Kohm pots are common. Taking 4.5 volts to be the maximum output voltage this requires a 3.68 Kohm resistor for R1. Replacing R1 with a pot would be unwise as ADJ must remain at 1.21 V and it could be shorted to GND by the user if a pot replaced it. 
