@@ -626,6 +626,7 @@ For this tutorial we will use Gerbview. We will run Gerbview from the main KiCAD
 Your gerber files are now loaded. You can zoom in and out and inspect that they look right. You can hide layers by unchecking them from the layer pallet at the right hand side of the tool.
 
 ## Summary of workflow:
+
  *Create a schematic of the circuit you wish to design with eeSchema, creating any symbols you find you need as you make the schematic
  *Annotate the schematic
  *Create any new footprints your components may require
