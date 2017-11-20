@@ -57,7 +57,7 @@ KiCAD is available for Linux, Windows, and OS X. This tutorial will be using the
 
 KiCAD is a collection of sub-programs their icons are shown below:
 
-![Subprograms]("http://babryce/kicad//toolbar.PNG")
+![Subprograms](toolbar.PNG)
 
 From left to right the first 5 programs are:
   * eeSchema – a schematic capture program
@@ -81,6 +81,7 @@ Notice both the shortcut (Shift+A) and the icon. The icon is available in the to
 *Click somewhere on the sheet.*
 
 You should get the choose component dialog box:
+![Dialog Box](componentDialog.PNG)
  
 You can use this to browse for the component you wish to place. 
 
@@ -130,6 +131,7 @@ This name is instructive what the part is and clarifies what the package is beca
 *In N type 5, and select SIL, then click assign pins*
 
 The datasheet shows the pinout in section 7:
+![Part pinout](ldopinout.PNG)
  
 *Replace PIN1, PIN2, etc with the names shown above. Use ADJ for pin 5.*
 
@@ -140,6 +142,7 @@ The datasheet shows the pinout in section 7:
 The input type is used for automatic design checking. If all your symbols use it correctly you can look for mistakes in a schematic with these constrains. For instance two Power Outputs pins connected to the same node would produce a warning. 
 
 When you are done it should look like this:
+![quicklib](quicklib.PNG)
  
 *Create a folder somewhere convenient called “KiCAD libraries”*
 
@@ -190,7 +193,7 @@ We now need to add the library to our project.
 You may get prompts for what object you wish to move or rotate. Field values are the labels on the symbols. A component is an instance of a symbol. 
 
 *Rearrange the components so that it looks something like this:*
-
+![Schematic](schematic1.PNG)
  
 Now we will wire the schematic together. 
 
@@ -203,6 +206,7 @@ First we will place No Connection flags on the pins we will not use.
 *Press escape*
 
 The schematic we are trying to make is:
+![LDO Schematic](ldocircuit.PNG)
  
 Where we have replaced R2 with pins 2 and 3 of the POT and we have replaced Vin with pins 1 and 4 of the USB_B connector.
 
@@ -211,6 +215,7 @@ Where we have replaced R2 with pins 2 and 3 of the POT and we have replaced Vin 
 Left clicking on a pin starts a wire, left clicking on another pin ends the wire. Left clicking elsewhere adds a turning point to the wire. Double clicking ends a wire even if it is not on a pin. A node bubble will appear where crossing wires are connected and not on a pin. Two crossing wires without a node bubble are not connected. 
 
 **It should look something like this:**
+![Schematic](schematic2.PNG)
  
 It is a little bit messy and we have not connected the CONN_01x02 yet. 
 
@@ -223,6 +228,7 @@ Wires are just a visual way of connecting two nodes so that the schematic tool c
 *Next copy the label by hovering over it and pressing C, place the label on the wire leading from “OUT” in your schematic.*
 
 **It should look something like this:**
+![Schematic](schematic3.PNG)
  
 If you see a square box for the label it is not connected to anything. 
 
@@ -237,13 +243,16 @@ Our last step is to place a GND label. These are just labels like the one we jus
 *Use “C” to copy the GND and then R to rotate it, left click on pin 1 of CONN_01x02 to place the GND.*
 
 **The schematic should now look something like this:**
+![Schematic](schematic4.PNG)
  
-##Last steps to finish the schematic
+## Last steps to finish the schematic
 We are all done placing and wiring. We now just have to create the netlist and tell the PCB layout tool what footprints to use for our symbols. 
 
 You may have noticed that the symbols we placed have labels like U? and P? on them. The ? stands for an unknown number. You can add these by hand if you want to give them specific numbers for some reason. There is an automatic way to do it though.
 
 *Tools-> Annotate Schematic*
+
+![Annotate](annotate.PNG)
  
 The defaults shown above are fine for our purposes.
 
@@ -268,6 +277,8 @@ Most of the footprints we will need are built into KiCAD because we wisely chose
 
 *In the main KiCAD window click on Footprint Editor*
 
+![Footprint Editor](footprintEditor.PNG)
+
 You may get some warnings but you can just click through them. This should bring up the footprint editor:
  
 *File -> Set active library, choose TO_SOT_Packages_SMD*
@@ -275,6 +286,8 @@ You may get some warnings but you can just click through them. This should bring
 We have picked this library because it will have similar footprints in it to the one we need to make.
 
 The first page of our potentiometer [datasheet](http://www.bourns.com/docs/Product-Datasheets/3269.pdf). Shows us the footprint we need to make, we have a W type potentiometer:
+
+![Potentiometer footprint](potFootprint.PNG)
  
 It is helpful to find a package/footprint that looks similar to what you want to create but it is not essential. 
 
@@ -293,11 +306,15 @@ Now we need to add the library to this project. To do this we will use the libra
 *Preferences -> Footprint Library Manager*
 
 The manager will appear:
+
+![Manager](footprintPath.PNG)
  
 *Click on the Project Specific Libraries tab*
 
 *Click Append Library, give the library the nickname tutorial and input the path to the library you just saved*
- 
+
+![Global](footprintPath2.PNG)
+
 In windows one way to get the path easily is to browse to the folder then click the address bar to show the full path, you can then copy the path to the clipboard (ctrl-c). The path will end in .pretty.
 
 *Click OK*
@@ -318,6 +335,8 @@ All possible options we might need are listed
 
 We will now edit the location and pin number of the pad to match the datasheet image for the W layout.
 
+![Potentiometer footprint](potFootprint.PNG)
+
 *Change the pad number to 2, change position Y to -0.095, Size X to 0.047, and Size Y to 0.11, click ok*
 
 *Mouse over pad 1 and press e, change positon X to -0.1, position Y to 0.095, Size X to 0.047, and Size Y to 0.11, click ok*
@@ -328,6 +347,7 @@ It is important to notice face up from face down when making footprints. The dra
 
 All that remains is to change the silkscreen and module name so that they look nice and match the part. You should currently have something that looks like this:
 
+![Potentiometer footprint](potFootprint2.PNG)
  
 The silkscreen is the text that will appear printed on the PCB, typically in white. 
 
@@ -346,6 +366,8 @@ The silkscreen is the text that will appear printed on the PCB, typically in whi
 *Draw a box around the part close to the pads. Click once to lay a new segment, double click to end drawing*
 
 It should look like this:
+
+![Potentiometer footprint](potFootprint3.PNG)
  
 *File-> Save Footprint in Active Library, in the save footprint dialog box change Name to TPOT and click OK*
 
@@ -362,6 +384,8 @@ We have all the footprints we need so we can now assign the symbols footprints!
 
 If you get a warning about legacy footprints, click no. 
 The program on the screen is Cvpcb, it should look like this:
+
+![pcbCV](pcbCV.PNG)
  
 Notice the 3rd icon from the right is depressed. It indicates the list shown at right is filtered. This is normally a good thing but occasionally the footprint you want will not be listed. If the symbol does not have a FPLIST then all the footprints will be shown. In that case it can be helpful to filter by pin number or by library! (These are # and L buttons).
 
@@ -384,6 +408,8 @@ The list is now filtered by library
 *Click on Tutorial in the left hand pane, then double click TPOT in the right hand pane*
 
 It should look like this:
+
+![pcbCV](pcbCV2.PNG)
  
 *File->Save Edits*
 
@@ -427,16 +453,20 @@ Here are some simple rules to remember and the physics behind them (where applic
 The task remaining to us is to use the netlist information we created with the schematic capture tools and create a PCB. We will import the footprint and connection data from the netlist we have worked hard to create. We then will move the footprints around and draw traces and VIAs on the PCB to connect the nets together. The software will prevent us from shorting this together or connecting parts to the wrong places!
 
 *From the KiCAD main window launch PCBnew, use the icon or Tools-> Run PCBnew*
+
+![PCBnew](pcbEditor.PNG)
  
 Once PCBnew is started:
 
 *Tools->Netlist, then click the read current netlist button and then close*
+
+![Import Netlist](netlist.PNG)
  
 You will get many messages about renaming nets.
 
 At this point your parts will all be in a pile. You can use your pointing device’s method of scrolling to zoom in and out.
 
-*Click on the 4th icon from the right in the top toolbar (Mode footprint):*
+*Click on the 4th icon from the right in the top toolbar (Mode footprint):* ![Move mode](moveButton.PNG)
 
 This sets the mode into one that defaults to moving footprints around and has some extra options for moving them as well. 
 
@@ -445,6 +475,7 @@ This sets the mode into one that defaults to moving footprints around and has so
 *Right click anywhere in the black area, Global spread and place -> Spread out all footprints*
 
 You will have something like this now:
+![Initial layout](ratsnest.PNG)
  
 The white lines running between the red pads are called airlines, they indicate the connections we must still make to complete the connectivity described by the netlist. The collective set of airlines is called the ratsnest. This is just a reference to it looking very messy. 
 
@@ -457,12 +488,15 @@ Our goal at this point is to make the ratsnest look as neat as possible by movin
 This step is one of the most important of PCB design. Poor locations of parts will make a bad board. You also must consider if you can solder the parts. Placing parts too close to each other can make that job harder, but makes traces better and lowers the cost of the board!
 
 I ended up with this for my footprint layout:
+![Layout](ratsnest2.PNG)
  
 Before we start putting traces onto the board we must do two things: define the design rules and define the extent of the board.
 
 *Check that the “In” button is depressed for inches in the toolbar at the left of the program (4th icon from the top)*
 
 *Design Rules -> Design Rules*
+
+![Design Rules](designRules.PNG)
  
 *Fill in 0.006 for Clearance and Track Width. Fill in 0.027 for Via Dia and 0.013 for Via Drill.*
 
@@ -470,7 +504,7 @@ Before we start putting traces onto the board we must do two things: define the 
 
 These parameters match the manufacturing specification of OSHPark which an inexpensive source of PCBs. They are fairly common for 6 mil clearance boards. 
 
-*Leave footprint mode by clicking on again.*
+*Leave footprint mode by clicking on* ![Move mode](moveButton.PNG) *again.*
 
 *Change the grid to 50 mils.*
 
@@ -481,6 +515,8 @@ We will now draw the board edge. The panel at the right hand side of side of PCB
 Remember that one click adds a segment, two clicks or escape ends the tool. 
 
 The silkscreen of parts normally indicates their extent. Because there is no harm in letting the USB connector extend beyond the edge of this board I have defined the board extents to cut part of the silk screen off, this will make the board smaller and save money:
+
+![Layout](withBoardEdge.PNG)
  
 Now we may route the board.
 
@@ -501,6 +537,8 @@ KiCAD has multiple manual routing tools. There is a legacy tool that works in th
 That should leave a red line connecting the two pads and the airline should no longer we displayed.
 
 *Next left click on the other pad of the capacitor, it should be labeled GND, press the V key. This creates a VIA indicated by a circle on the crosshairs.*
+
+![Routing](routing.PNG)
  
 *Place the VIA in the empty area between the CONN_01x02 and the capacitor by left clicking. Finally left click on the GND pad of the CONN_01x02 to complete the trace.*
 
@@ -517,6 +555,8 @@ We have done two traces together. Go ahead and route the rest of the traces. You
 *Continue to route the board.*
 
 If you mess up you can exit placing traces by hitting escape until the cross hair goes away. Then you can delete traces with the delete key by hovering over them. My finished routing looks like this:
+
+![Routing done](routed.PNG)
  
 The last thing to do is to add a ground plane to the backside of the board. 
 
@@ -527,10 +567,14 @@ The last thing to do is to add a ground plane to the backside of the board.
 *Place->Zone, left click near a corner of your board inside the edge cuts of the board*
 
 The Copper Zone Properties dialog will appear:
+
+![Zone](zone.PNG)
  
 The defaults here are okay. 
 
 *Draw a box inside the edge cuts of your board and double click when you return to the vortex from which you started.*
+
+![With GND plane](gndPlaneBoard.PNG)
  
 You should get something like the above (though it may not be filled in yet). If you are like me you will have some silkscreen markings outside of the edges of the board or overlapping with pads. 
 
@@ -549,12 +593,16 @@ To run the design rules checker:
 To make the files for fabrication:
 
 *File->Plot, match the checked layers in the image below, and check Use Protel filename extensions in the Gerber Options area*
+
+![Gerbers](gerbers.PNG)
  
 These are the layers OSHPark will need to make the board. (Update: OSHPark will now accept the .kicad_pcb format; however most vendors only accept Gerbers so the procedure below is still useful to know).
 
 *Click Plot to create the files*
 
 We also have to generate a drill file. These are for the holes through the PCB namely VIAs and the through-hole parts on this board like the USB connector. 
+
+![Drills](drills.PNG)
 
 *Click Generate Drill File, the options should match the image below as the default*
  
