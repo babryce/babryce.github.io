@@ -1,7 +1,4 @@
 ### KiCAD PCB Tutorial
-## B. A. Bryce
-    
-![Top View](./slidedigitizer/topview.jpg)
  
 There are many PCB CAD tools. Some examples include: Altium, Allegro, PADS, Eagle, Diptrace and KiCAD. The principles behind PCB CAD tools are generally similar. Each tool has its own design choices, with these come advantages and disadvantages. Once you learn your first PCB CAD tool learning more should not be as difficult. Altium, Allegro and PADS are commercial tools. They cost several 1000 dollars a seat. Eagle and Diptrace are freemium model software. Both support 2-layer boards with some restrictions for free. KiCAD is the most mature open source software (OSS) PCB CAD tool available presently. 
 
@@ -15,156 +12,253 @@ In this document actions to take will be written in *italics*. Menus will levels
 
 In this tutorial we will be create a simple adjustable low drop out regulator (LDO) based power supply with power supplied by a USB port. To do this we must first select the parts required. 
 
-Part selection is an important skill to master. Digi-key electronics (www.digikey.com) has over 19,000 LDOs to choose from. It can be hard to know where to begin. Luckily the parametric search parameters available help narrow the scope of the choice quickly if you have some basic specifications in mind. There are less than 3,000 positive adjustable LDOs in stock. Selecting for output currents greater than 500 mA reduces the count to less than 2,000. Selecting only LDOs in a TO-263 and variants package reduces the number to under 400. Restricting the drop out voltage (input to output loss required for regulation) to less than 0.4 volts reduces the number to less than 200. At this point in the process it becomes necessary to read datasheets. 
+Part selection is an important skill to master. Digi-key electronics [digikey.com](http://www.digikey.com) has over 19,000 LDOs to choose from. It can be hard to know where to begin. Luckily the parametric search parameters available help narrow the scope of the choice quickly if you have some basic specifications in mind. There are less than 3,000 positive adjustable LDOs in stock. Selecting for output currents greater than 500 mA reduces the count to less than 2,000. Selecting only LDOs in a TO-263 and variants package reduces the number to under 400. Restricting the drop out voltage (input to output loss required for regulation) to less than 0.4 volts reduces the number to less than 200. At this point in the process it becomes necessary to read datasheets. 
 
-Digi-key is just one of many electronics parts distributors. Mouser, Newark, Arrow and Avnet are its most direct competitors in the US. Octopart.com is a useful metasearch of distributors to find the lowest cost source.
+Digi-key is just one of many electronics parts distributors. Mouser, Newark, Arrow and Avnet are its most direct competitors in the US. [octopart.com](http://octorpart.com) is a useful metasearch of distributors to find the lowest cost source.
 LDOs are feedback based devices, as such there are stability criteria for them. Stability of an LDO is normally dependent on the properties of the capacitors used in conjunction with the LDO. Specifically the size of the capacitor and the equivalent series resistance (ESR, which models a non-ideality of a capacitor) are most relevant. Often this restricts the type of capacitor we can use with the LDO. Older LDOs required tantalum capacitors. Newer LDO designs are able to use ceramic capacitors. Other capacitor types include aluminum electrolytic, and polymer based dielectric capacitors. Each type of capacitor has advantages and disadvantages. Here we will use ceramic capacitors only. They are not generally polarized, are small and inexpensive. 
-From our 200 LDO choices remaining we select a Texas Instruments TL1963 LDO. This part is also available from Linear Technology as LT1963. This is an example of second sourcing, and is wise for design longevity. If one company stops making the part or has a supply disruption, there is a second option available. Another reason we selected the TL1963 is that it is a low noise LDO making it appropriate for many analog applications not just digital circuits!
-We will implement the simplified schematic on the first page of the datasheet for this tutorial, supplying Vin from a USB plug and making Vout available on a 0.1 inch header that can plugged into a breadboard. 
+
+From our 200 LDO choices remaining we select a Texas Instruments [TL1963 LDO](http://www.ti.com/lit/ds/symlink/tl1963a.pdf). This part is also available from Linear Technology as LT1963. This is an example of second sourcing, and is wise for design longevity. If one company stops making the part or has a supply disruption, there is a second option available. Another reason we selected the TL1963 is that it is a low noise LDO making it appropriate for many analog applications not just digital circuits!
+
+We will implement the simplified schematic on the first page of the [datasheet](http://www.ti.com/lit/ds/symlink/tl1963a.pdf) for this tutorial, supplying Vin from a USB plug and making Vout available on a 0.1 inch header that can plugged into a breadboard. 
+
 In section 10.2 of the datasheet we are given the formula for the output voltage:
 V_out=1.21V (1+R_2/R_1 )+I_adj R2
+
 Meanwhile Figure 30 (reproduced below) gives a particular application of the formula for a 2.5 V output. 
  
 We wish to create an output ranging from as close to 0 as possible to as close to our input voltage as reasonable. Our USB power source is 5 V, and the dropout voltage of this regulator is nominally 340 mV. Regulation between 1.21 V and 4.6 V is therefore possible. To enable user adjustable operation we must replace R1 or R2 with an adjustable resistor: a potentiometer, also called a pot. 
 We will replace R2 with the pot. 10 Kohm pots are common. Taking 4.5 volts to be the maximum output voltage this requires a 3.68 Kohm resistor for R1. Replacing R1 with a pot would be unwise as ADJ must remain at 1.21 V and it could be shorted to GND by the user if a pot replaced it. 
-We will select a 12 turn trimmer potentiometer for R2 (Part: 3269W-1-103GLF), this will allow fine adjustment of the output voltage. 
+We will select a 12 turn trimmer potentiometer for R2 (Part: [3269W-1-103GLF](http://www.bourns.com/docs/Product-Datasheets/3269.pdf)), this will allow fine adjustment of the output voltage. 
+
 For R1 we will choose a standard 3.65 kohm resistor in a 0805 surface mount package (Part: ERJ-6ENF3651V).
+
 For the capacitors we will select 10 µF 0805 capacitors with a temperature X5R temperature coefficient. (Part: GRM21BR61C106KE15K; ceramics capacitors use a variety of types of ceramics and they have different properties, X5R is a class II ceramic and a good middle of the road choice if NPO is not affordable or available). 
-Finally we need to select a USB connector. For this we will select a standard USB-B type connector. Although microUSB is now the most common the USB-B will be easier for you to solder if you are just learning the process for the first time. Soldering a microUSB and other fine pitch parts is not difficult with some practice! The USB connector we have picked out is: USB-B1HSB6.
+
+Finally we need to select a USB connector. For this we will select a standard USB-B type connector. Although microUSB is now the most common the USB-B will be easier for you to solder if you are just learning the process for the first time. Soldering a microUSB and other fine pitch parts is not difficult with some practice! The USB connector we have picked out is: [USB-B1HSB6](http://www.on-shore.com/sites/default/files/manuals/usb-b1hsxx.pdf).
+
 Part selection is based on engineering judgement. Some of the proceeding reasoning might be opaque. The prose have been kept short to not drag down the exposition of this tutorial, however if you are curious to learn more about any of the trade-offs in the parts selected above just ask your professor. 
-Preliminaries:
+
+##Preliminaries:
 Now that we have finished our part selections we can get to work making the PCB to place them on! 
-The computers in the E85 lab already have KiCAD installed. If you wish to work on your own computer you can obtain a copy from: http://kicad-pcb.org/. This tutorial matches version 4.0 and was installed with the default options.
+
+If you have not already obtain a copy of KiCAD fromm: [http://kicad-pcb.org/](http://kicad-pcb.org/). This tutorial matches version 4.0 and was installed with the default options.
+
 KiCAD is available for Linux, Windows, and OS X. This tutorial will be using the appearance of the windows version but most will be similar. “Folder” will be used as a synonym for directory.
-Create a new project:
-Create a folder for your project named tutorial (use the Charlie file server if in the E85 lab)
-Launch KiCAD from the start menu
-Create a new project: File->New Project->New Project, navigate to the folder you created and set the file name of your project to tutorial; click save
+
+**Create a new project:**
+
+*Create a folder for your project named tutorial*
+
+*Launch KiCAD from the start menu*
+
+*Create a new project: **File->New Project->New Project**, navigate to the folder you created and set the file name of your project to tutorial; click save*
+
 KiCAD is a collection of sub-programs their icons are shown below:
  
 From left to right the first 5 programs are:
-	eeSchema – a schematic capture program
-	Library Editor – a program to create schematic symbols
-	PCBnew – a PCB layout tool
-	Footprint Editor – a program to create PCB footprints
-	Gerbview – a program to inspect Gerber files
-The last 3 are utilities programs which will not be covered at all in this tutorial. Placing your mouse over the icon in KiCAD always gives a tooltip of which the icon does. 
+  * eeSchema – a schematic capture program
+  *	Library Editor – a program to create schematic symbols
+	* PCBnew – a PCB layout tool
+	* Footprint Editor – a program to create PCB footprints
+	* Gerbview – a program to inspect Gerber files
 
-Making a schematic:
-To create a schematic for this project launch eeSchema from the main KiCAD window.
+The last 3 are utilities programs which will not be covered at all in this tutorial. **Placing your mouse over the icon in KiCAD always gives a tooltip of which the icon does.** 
+
+##Making a schematic:
+To create a schematic for this project *launch eeSchema from the main KiCAD window.*
+
 You will have a blank sheet. Schematics in eeSchema can be hierarchical if you have a complex circuit to build but in this tutorial we will fit everything onto a single sheet. 
 To draw the schematic we must place the required components onto the sheet. 
-Place->Component (Shift+A)
+
+*Place->Component (Shift+A)*
+
 Notice both the shortcut (Shift+A) and the icon. The icon is available in the toolbar at the right hand side of the sheet. The keyboard shortcut can also be used. 
-Click somewhere on the sheet.
+
+*Click somewhere on the sheet.*
+
 You should get the choose component dialog box:
  
 You can use this to browse for the component you wish to place. 
-Look under “conn” and find USB_B and click OK
-Your cursor will now have the component attached to it. Left click somewhere on the sheet to drop component. The object on the sheet is called the symbol for the component. 
+
+*Look under “conn” and find USB_B and click OK*
+
+Your cursor will now have the component attached to it. *Left click somewhere on the sheet to drop component.* The object on the sheet is called the **symbol** for the component. 
+
 Now we will add the capacitors. Rather than searching for them in the list we can type the name.
-Left click on the sheet, in filter type “C”, the first entry that appears will be an unpolarized capacitor, what we need. Click OK.
-Place the capacitor on the sheet by left clicking the sheet. Then place a second capacitor on the sheet.
+
+*Left click on the sheet, in filter type “C”, the first entry that appears will be an unpolarized capacitor, what we need. Click OK.*
+
+*Place the capacitor on the sheet by left clicking the sheet. Then place a second capacitor on the sheet.*
+
 Notice that the place component dialog remembered the last choice which saves you some typing or hunting in the list. Next we need a resistor.
-Place a resistor “R” on the sheet.
+
+*Place a resistor “R” on the sheet.*
+
 We also need a potentiometer, the LDO and a 2 pin header with 0.1 inch pitch.
-Place a potentiometer “POT” on the sheet.
-In the “conn” list find CONN that is listed with the comment [Connector 01x02]
+
+*Place a potentiometer “POT” on the sheet.*
+
+*In the “conn” list find CONN that is listed with the comment [Connector 01x02]*
+
 With these in place all we need is the LDO. 
+
 The maintainers of KiCAD do not have every part in their libraries. They do have some regulators, however we have purposely selected one that will require us to do another essential task: making a symbol.
-Making a symbol
+
+##Making a symbol
 Symbols are representations of parts for schematic capture. They associate the number of a pin on a package with the purpose of that pin using a friendly name or label. Some symbols are iconic and standardized others are simply black boxes with pin numbers and labels.
+
 The built-in tool to make symbols is the library editor. This tool lets you draw the symbol on a pin by pin basis.
 Because KiCAD is modular and everything is just a file, other tools exist that can greatly speed up creating library symbols for KiCAD.
-If you are going to make a lot of symbols KiPart is a python based script for making complex symbols. It was written by a FPGA board designer. FPGAs have 100s of pins so making symbols by hand is error prone and tedious. 
+
+If you are going to make a lot of symbols [KiPart](https://kipart.readthedocs.io/en/latest/) is a python based script for making complex symbols. It was written by a FPGA board designer. FPGAs have 100s of pins so making symbols by hand is error prone and tedious. 
+
 Another tool for making KiCAD symbols is available on the web: 
-http://kicad.rohrbacher.net/quicklib.php
+[http://kicad.rohrbacher.net/quicklib.php](http://kicad.rohrbacher.net/quicklib.php)
+
 This tool is great as its name implies for quickly making symbols. The default of this tool is to create symbols that look like the physical part. When there are a large number of pins connected to the same place but not next to each other this can be non-optimal. As you progress in PCB design you will find this can be a major drawback and learn other ways of making symbols. When you have a part with a small number of pins having the symbol look like the physical part makes the schematic look more like the circuit/PCB which can be good. 
+
 For this tutorial we will only use quicklib. 
-Go to: http://kicad.rohrbacher.net/quicklib.php
-Input for the component name: LDO-TL1963-TO263-5
+*Go to:[http://kicad.rohrbacher.net/quicklib.php](http://kicad.rohrbacher.net/quicklib.php)*
+
+*Input for the component name: LDO-TL1963-TO263-5*
+
 This name is instructive what the part is and clarifies what the package is because it comes in several packages.
-In N type 5, and select SIL, then click assign pins
+*In N type 5, and select SIL, then click assign pins*
  
 The datasheet shows the pinout in section 7:
  
-Replace PIN1, PIN2, etc with the names shown above. Use ADJ for pin 5.
-For pin 1 in the format column click on the inversion bubble style.
-For the type select Power Input for IN, GND, select Power Output for OUT. Leave SHDN and ADJ as inputs. 
+*Replace PIN1, PIN2, etc with the names shown above. Use ADJ for pin 5.*
+
+*For pin 1 in the format column click on the inversion bubble style.*
+
+*For the type select Power Input for IN, GND, select Power Output for OUT. Leave SHDN and ADJ as inputs.*
+
 The input type is used for automatic design checking. If all your symbols use it correctly you can look for mistakes in a schematic with these constrains. For instance two Power Outputs pins connected to the same node would produce a warning. 
+
 When you are done it should look like this:
  
-Create a folder somewhere convenient called “KiCAD libraries” (On Charlie if the E85 lab or near your project directory)
-In the web tool click “Build Library Component”; save the file.
+*Create a folder somewhere convenient called “KiCAD libraries”*
+
+*In the web tool click “Build Library Component”; save the file.*
+
 In most modern browsers this will end up in the downloads folder: the file should be called: LDO-TL1963-TO263-5.lib
-Move this file to your KiCad libraries folder you created and rename the file mySymbols.lib
+
+*Move this file to your KiCad libraries folder you created and rename the file mySymbols.lib*
+
 As you get more symbols it would be wise to segment the libraries you create into parts of different classes. For now we have few enough that one library is sufficient. 
-Open mySymbols.lib in Notepad++ or another text editor.
+
+*Open mySymbols.lib in a text editor.*
+
 You will see the code that the script generated. Most of the code are coordinates of the symbol and the pin numbers and names. 
+
 Comments are started with #
-To add more symbols to your library just download the symbol file as you just did and then copy and paste the code from the first # to the ENDDEF statement into this library file. Having a single library file will save you effort of adding many libraries to your project!
+**To add more symbols to your library just download the symbol file as you just did and then copy and paste the code from the first # to the ENDDEF statement into this library file. Having a single library file will save you effort of adding many libraries to your project!**
+
 One thing that the online script does not do is add code to filter the footprints (physically what the part looks like on the PCB).  We can add this by hand in the text file.
-Directly above draw insert:
+
+*Directly above draw insert:*
 $FPLIST
  TO-263-5Lead
 $ENDFPLIST
 
-Remove the word MODULE from F2’s quotes (this field is deprecated). 
-Save the file.
+*Remove the word MODULE from F2’s quotes (this field is deprecated).*
+
+*Save the file.*
+
 If you felt that was rather complex, on the one hand it was. On the other hand it really is not hard to do: Go online type in the pins, click a button, copy code from one file into another and save. You do not have to add a filter list to the part at all, that just saves you effort when you are going to use this part frequently. Making symbols and footprints is always the most tedious part of PCB design. It gets easier with practice and once you have a set of parts you commonly use the frequency decreases. 
-Finishing the schematic
+
+##Finishing the schematic
 We now need to add the library to our project.
-Go back to eeSchema
-Click Preferences->Component Libraries
-Click on Add then browse to the library we just created, click open then OK
-Place a component, find mySymbols in the list. Look there is your shiny new symbol! Place it on the sheet. 
-Press the escape key to exit the place component mode
-Hover over a part and click M to move, click R to rotate. 
+
+*Go back to eeSchema*
+
+*Click Preferences->Component Libraries*
+
+*Click on Add then browse to the library we just created, click open then OK*
+
+*Place a component, find mySymbols in the list. Look there is your shiny new symbol! Place it on the sheet.*
+
+*Press the escape key to exit the place component mode.*
+
+*Hover over a part and click M to move, click R to rotate.*
+
 You may get prompts for what object you wish to move or rotate. Field values are the labels on the symbols. A component is an instance of a symbol. 
-Rearrange the components so that it looks something like this:
+
+*Rearrange the components so that it looks something like this:*
+
  
 Now we will wire the schematic together. 
+
 First we will place No Connection flags on the pins we will not use.
-Place-> No Connect Flag (shift-Q)
-Click on pin 1 of the POT, pin 2, 3, and 5 of the USB_B
-Press escape
+
+*Place-> No Connect Flag (shift-Q)*
+
+*Click on pin 1 of the POT, pin 2, 3, and 5 of the USB_B*
+
+*Press escape*
+
 The schematic we are trying to make is:
  
 Where we have replaced R2 with pins 2 and 3 of the POT and we have replaced Vin with pins 1 and 4 of the USB_B connector.
-Wire the parts other than CONN_01x02 using Place->Wire (shift-W)
+
+*Wire the parts other than CONN_01x02 using Place->Wire (shift-W)*
+
 Left clicking on a pin starts a wire, left clicking on another pin ends the wire. Left clicking elsewhere adds a turning point to the wire. Double clicking ends a wire even if it is not on a pin. A node bubble will appear where crossing wires are connected and not on a pin. Two crossing wires without a node bubble are not connected. 
-It should look something like this:
+
+**It should look something like this:**
  
 It is a little bit messy and we have not connected the CONN_01x02 yet. 
+
 Wires are just a visual way of connecting two nodes so that the schematic tool can create the netlist of what is connected to what. Another way to tell the schematic tool two nodes are connected is with a label. 
-Place-> Label (shift-L)
-Click near the CONN_01x02 and type VOUT for the text then click OK, left on pin 2 of CONN_01x02
-Next copy the label by hovering over it and pressing C, place the label on the wire leading from “OUT” in your schematic.
-It should look something like this:
+
+*Place-> Label (shift-L)*
+
+*Click near the CONN_01x02 and type VOUT for the text then click OK, left on pin 2 of CONN_01x02*
+
+*Next copy the label by hovering over it and pressing C, place the label on the wire leading from “OUT” in your schematic.*
+
+**It should look something like this:**
  
 If you see a square box for the label it is not connected to anything. 
+
 Our last step is to place a GND label. These are just labels like the one we just created they just have standard names. 
-Place -> Power Port
-Left click on the schematic, type GND into filter and then OK
-Left click to place the GND on the wire from GND
-Use “C” to copy the GND and then R to rotate it, left click on pin 1 of CONN_01x02 to place the GND.
-The schematic should now look something like this:
+
+*Place -> Power Port*
+
+*Left click on the schematic, type GND into filter and then OK*
+
+*Left click to place the GND on the wire from GND*
+
+*Use “C” to copy the GND and then R to rotate it, left click on pin 1 of CONN_01x02 to place the GND.*
+
+**The schematic should now look something like this:**
  
-Last steps to finish the schematic
+##Last steps to finish the schematic
 We are all done placing and wiring. We now just have to create the netlist and tell the PCB layout tool what footprints to use for our symbols. 
+
 You may have noticed that the symbols we placed have labels like U? and P? on them. The ? stands for an unknown number. You can add these by hand if you want to give them specific numbers for some reason. There is an automatic way to do it though.
-Tools-> Annotate Schematic
+
+*Tools-> Annotate Schematic*
  
 The defaults shown above are fine for our purposes.
-Click Annotate, then OK
+
+*Click Annotate, then OK*
+
 Now we create the netlist
-Tools -> Generate Netlist File 
+
+*Tools -> Generate Netlist File*
+
 The netlist creation window for PCBnew will appear
-Click on Generate, and save
+
+*Click on Generate, and save*
+
 The default name will match the project and the save location will be the project folder. These are the best choices.
-Finally, File -> Save Schematic Project (ctrl-s)
+
+*Finally, File -> Save Schematic Project (ctrl-s)*
+
 The schematic tool has done its job: producing a netlist for the circuit we wanted. Our next step is to tell the CAD tool what the parts look like by assigning the symbols footprints.
-Assigning and making footprints:
+
+##Assigning and making footprints:
 Most of the footprints we will need are built into KiCAD because we wisely chose parts with standard footprints. We could have chosen a potentiometer with a standard footprint as well but we intentionally did not to allow this tutorial to including making a footprint. This is an essential skill just like making a symbol.
 In the main KiCAD window click on Footprint Editor
 You may get some warnings but you can just click through them. This should bring up the footprint editor:
