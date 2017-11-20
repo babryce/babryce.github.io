@@ -627,17 +627,17 @@ Your gerber files are now loaded. You can zoom in and out and inspect that they 
 
 ## Summary of workflow:
 
- *Create a schematic of the circuit you wish to design with eeSchema, creating any symbols you find you need as you make the schematic
- *Annotate the schematic
- *Create any new footprints your components may require
- *Assign footprints to the components with Cvpcb
- *Export the netlist
- *Use PCBnew to read the netlist
- *Arrange the footprints to minimize the messiness of the ratsnest
- *Place a board edge around your parts
- *Create the traces, VIAs and zones needed to complete the design
- *Run a design rules check
- *Export gerber and drill files for fabrication
+ * Create a schematic of the circuit you wish to design with eeSchema, creating any symbols you find you need as you make the schematic
+ * Annotate the schematic
+ * Create any new footprints your components may require
+ * Assign footprints to the components with Cvpcb
+ * Export the netlist
+ * Use PCBnew to read the netlist
+ * Arrange the footprints to minimize the messiness of the ratsnest
+ * Place a board edge around your parts
+ * Create the traces, VIAs and zones needed to complete the design
+ * Run a design rules check
+ * Export gerber and drill files for fabrication
 
 Finally if you want to be very everything is right with your files you can use gerbview or gerbv to examine your output files before you send them off to be made. 
 
