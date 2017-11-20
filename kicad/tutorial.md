@@ -22,11 +22,11 @@ From our 200 LDO choices remaining we select a Texas Instruments [TL1963 LDO](ht
 We will implement the simplified schematic on the first page of the [datasheet](http://www.ti.com/lit/ds/symlink/tl1963a.pdf) for this tutorial, supplying Vin from a USB plug and making Vout available on a 0.1 inch header that can plugged into a breadboard. 
 
 In section 10.2 of the datasheet we are given the formula for the output voltage:
-$$V_{out}=1.21V (1+R_2/R_1 )+I_{adj} R2$$
+$$V_{out}=1.21V (1+R_2/R_1 )+I_{adj} R_2$$
 
 Meanwhile Figure 30 (reproduced below) gives a particular application of the formula for a 2.5 V output. 
 
-![LDO Circuit]("./ldocircuit.PNG")
+![LDO Circuit]("http://babryce/kicad/ldocircuit.PNG")
  
 We wish to create an output ranging from as close to 0 as possible to as close to our input voltage as reasonable. Our USB power source is 5 V, and the dropout voltage of this regulator is nominally 340 mV. Regulation between 1.21 V and 4.6 V is therefore possible. To enable user adjustable operation we must replace R1 or R2 with an adjustable resistor: a potentiometer, also called a pot. 
 We will replace R2 with the pot. 10 Kohm pots are common. Taking 4.5 volts to be the maximum output voltage this requires a 3.68 Kohm resistor for R1. Replacing R1 with a pot would be unwise as ADJ must remain at 1.21 V and it could be shorted to GND by the user if a pot replaced it. 
@@ -57,8 +57,8 @@ KiCAD is available for Linux, Windows, and OS X. This tutorial will be using the
 
 KiCAD is a collection of sub-programs their icons are shown below:
 
-![Subprograms]("./toolbar.PNG")
- 
+![Subprograms]("http://babryce/kicad//toolbar.PNG")
+
 From left to right the first 5 programs are:
   * eeSchema – a schematic capture program
   *	Library Editor – a program to create schematic symbols
