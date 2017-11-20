@@ -1,4 +1,4 @@
-### KiCAD PCB Tutorial
+# KiCAD PCB Tutorial
  
 There are many PCB CAD tools. Some examples include: Altium, Allegro, PADS, Eagle, Diptrace and KiCAD. The principles behind PCB CAD tools are generally similar. Each tool has its own design choices, with these come advantages and disadvantages. Once you learn your first PCB CAD tool learning more should not be as difficult. Altium, Allegro and PADS are commercial tools. They cost several 1000 dollars a seat. Eagle and Diptrace are freemium model software. Both support 2-layer boards with some restrictions for free. KiCAD is the most mature open source software (OSS) PCB CAD tool available presently. 
 
@@ -26,7 +26,7 @@ $$V_{out}=1.21V (1+R_2/R_1 )+I_{adj} R2$$
 
 Meanwhile Figure 30 (reproduced below) gives a particular application of the formula for a 2.5 V output. 
 
-![LDO Circuit]("./ldocircuit.png")
+![LDO Circuit]("./ldocircuit.PNG")
  
 We wish to create an output ranging from as close to 0 as possible to as close to our input voltage as reasonable. Our USB power source is 5 V, and the dropout voltage of this regulator is nominally 340 mV. Regulation between 1.21 V and 4.6 V is therefore possible. To enable user adjustable operation we must replace R1 or R2 with an adjustable resistor: a potentiometer, also called a pot. 
 We will replace R2 with the pot. 10 Kohm pots are common. Taking 4.5 volts to be the maximum output voltage this requires a 3.68 Kohm resistor for R1. Replacing R1 with a pot would be unwise as ADJ must remain at 1.21 V and it could be shorted to GND by the user if a pot replaced it. 
@@ -56,6 +56,8 @@ KiCAD is available for Linux, Windows, and OS X. This tutorial will be using the
 *Create a new project: **File->New Project->New Project**, navigate to the folder you created and set the file name of your project to tutorial; click save*
 
 KiCAD is a collection of sub-programs their icons are shown below:
+
+![Subprograms]("./toolbar.PNG")
  
 From left to right the first 5 programs are:
   * eeSchema – a schematic capture program
