@@ -516,7 +516,7 @@ Remember that one click adds a segment, two clicks or escape ends the tool.
 
 The silkscreen of parts normally indicates their extent. Because there is no harm in letting the USB connector extend beyond the edge of this board I have defined the board extents to cut part of the silk screen off, this will make the board smaller and save money:
 
-![Layout](withBoardEdge.PNG)
+![Layout](withBoardedge.PNG)
  
 Now we may route the board.
 
